@@ -7,14 +7,14 @@
     <title>EAN - Empower Africa Network</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Splash Screen - Shooting Star First, Then Logo Reveal */
+        /* Splash Screen - Rising Sun Effect */
         #splash-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #1E6B47;
+            background: linear-gradient(145deg, #0B3B2A 0%, #1E6B47 50%, #FDB813 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -23,7 +23,7 @@
             overflow: hidden;
         }
 
-        #starCanvas {
+        #sunCanvas {
             position: absolute;
             top: 0;
             left: 0;
@@ -35,63 +35,94 @@
 
         .splash-content {
             position: relative;
-            z-index: 9999;
+            z-index: 10001;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transform: translateY(50px);
+            animation: fadeInUp 1.5s ease-out forwards;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .splash-logo {
             width: 300px;
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: logoGlow 2s ease-in-out infinite;
+            box-shadow: 0 20px 40px rgba(253, 184, 19, 0.3);
             margin-bottom: 20px;
+            border: 4px solid rgba(255, 215, 0, 0.3);
+            animation: logoGlow 2s infinite alternate;
         }
 
         @keyframes logoGlow {
-            0%, 100% {
-                box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-                transform: scale(1);
+            from {
+                box-shadow: 0 20px 40px rgba(253, 184, 19, 0.3);
+                border-color: rgba(255, 215, 0, 0.3);
             }
-            50% {
-                box-shadow: 0 20px 50px rgba(255, 215, 0, 0.6);
-                transform: scale(1.05);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
+            to {
+                box-shadow: 0 30px 60px rgba(253, 184, 19, 0.6);
+                border-color: rgba(255, 215, 0, 0.8);
             }
         }
 
         .loading-text {
-            color: white;
-            font-size: 1.2rem;
+            color: #FFE55C;
+            font-size: 1.3rem;
             margin-top: 20px;
-            animation: pulseText 1.5s infinite;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(253, 184, 19, 0.5);
+            font-weight: 600;
+            letter-spacing: 2px;
+            position: relative;
+            padding: 10px 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
-        @keyframes pulseText {
-            0%, 100% { 
-                opacity: 0.7;
-                letter-spacing: normal;
+        .sun-rays {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 120%, rgba(253, 184, 19, 0.2) 0%, transparent 70%);
+            animation: raysPulse 3s infinite alternate;
+            z-index: 9998;
+        }
+
+        @keyframes raysPulse {
+            from {
+                opacity: 0.3;
+                transform: scale(1);
             }
-            50% { 
-                opacity: 1;
-                letter-spacing: 2px;
+            to {
+                opacity: 0.8;
+                transform: scale(1.1);
             }
+        }
+
+        .horizon {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, #1E3A2A 0%, transparent 100%);
+            z-index: 9997;
+            opacity: 0.6;
         }
 
         @media (max-width: 768px) {
@@ -335,9 +366,9 @@
             padding: 5px;
         }
 
-        /* Hero Section */
+        /* Hero Section - Updated with new banner image */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/ngo 1.jpeg');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/ban img.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1130,12 +1161,14 @@
 </head>
 
 <body>
-    <!-- Splash Screen - Shooting Star First, Then Logo Reveal -->
+    <!-- Splash Screen - Rising Sun Effect -->
     <div id="splash-screen">
-        <canvas id="starCanvas"></canvas>
-        <div class="splash-content" style="opacity: 0;">
+        <canvas id="sunCanvas"></canvas>
+        <div class="sun-rays"></div>
+        <div class="horizon"></div>
+        <div class="splash-content">
             <img src="images/logo.jpeg" alt="EAN Logo" class="splash-logo">
-            <div class="loading-text">Empowering Africa Through Skills and Enterprise</div>
+            <div class="loading-text">A New Dawn for Africa • Rising Together</div>
         </div>
     </div>
 
@@ -1164,7 +1197,7 @@
         </div>
     </header>
 
-    <!-- Home Page -->
+    <!-- Home Page - Updated with new banner image -->
     <section class="hero">
         <div class="container hero-content">
             <h1>Empowering Africa Through Skills and Enterprise</h1>
@@ -1184,8 +1217,8 @@
                 <div class="about-text">
                     <h2>About Empower Africa Network</h2>
                     <p>Empower Africa Network (EAN) is dedicated to empowering individuals and communities across Africa
-                        through skills-based training, entrepreneurial support, education, and community development
-                        initiatives.</p>
+                        through skills-based training,healthcare services, entrepreneurial support, education, and community development
+                        initiatives across communities and across all Faith.</p>
                     <p>Our mission is to enhance livelihoods, promote inclusive economic growth, and foster sustainable
                         development across underserved communities.</p>
 
@@ -1226,10 +1259,10 @@
                     <div class="program-content">
                         <h3>Skills for Growth</h3>
                         <ul>
-                            <li>Vocational training (tailoring, carpentry, electrical work)</li>
-                            <li>Digital skills training (coding, graphic design)</li>
+                            <li>Vocational training (tailoring, carpentry, electrical work etc)</li>
+                            <li>Digital skills training (coding, graphic design etc)</li>
                             <li>Entrepreneurial skills development</li>
-                            <li>Business planning and financial management</li>
+                            <li>Business planning, financial management and many more</li>
                         </ul>
                         <a href="programs.html" class="btn">Learn More</a>
                     </div>
@@ -1387,9 +1420,8 @@
                             <h3>Our Location</h3>
                         </div>
                         <div class="contact-details">
-                            <p>Great Accra, New Adenta</p>
-                            <p>Lakeside Estate, Community 4</p>
-                            <p>Ghana</p>
+                            <p>Greater Accra</p>
+                        
                         </div>
                     </div>
 
@@ -1630,12 +1662,11 @@
             });
         }
 
-        // Shooting Star Splash Screen Effect - Star First, Then Logo
+        // Rising Sun Effect
         window.addEventListener('load', function() {
             const splashScreen = document.getElementById('splash-screen');
-            const canvas = document.getElementById('starCanvas');
+            const canvas = document.getElementById('sunCanvas');
             const ctx = canvas.getContext('2d');
-            const splashContent = document.querySelector('.splash-content');
             
             // Set canvas size
             function resizeCanvas() {
@@ -1645,269 +1676,146 @@
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
             
-            // Star properties
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
+            // Sun properties
+            let sunY = canvas.height + 100; // Start below screen
+            const sunRadius = 150;
+            let opacity = 0;
+            let phase = 'rising'; // rising, shining
             
-            // Choose starting corner (random for variety)
-            const corners = [
-                { x: -100, y: -100 }, // top-left
-                { x: canvas.width + 100, y: -100 }, // top-right
-                { x: -100, y: canvas.height + 100 }, // bottom-left
-                { x: canvas.width + 100, y: canvas.height + 100 } // bottom-right
-            ];
-            const startCorner = corners[Math.floor(Math.random() * corners.length)];
+            // Ray properties
+            const rays = [];
+            const numRays = 12;
             
-            // Star trail particles
-            let particles = [];
-            let animationPhase = 'approaching'; // approaching, impact, logoReveal
-            let impactTime = 0;
-            let startTime = null;
-            let logoRevealTime = 0;
-            const approachDuration = 1500; // 1.5 seconds to approach
-            const impactDuration = 800; // 0.8 seconds impact effect
-            const logoRevealDuration = 1000; // 1 second logo reveal
-            
-            // Create explosion particles
-            function createExplosionParticles() {
-                const particles = [];
-                for (let i = 0; i < 50; i++) {
-                    const angle = Math.random() * Math.PI * 2;
-                    const speed = 5 + Math.random() * 15;
-                    particles.push({
-                        x: centerX,
-                        y: centerY,
-                        vx: Math.cos(angle) * speed,
-                        vy: Math.sin(angle) * speed,
-                        size: 10 + Math.random() * 30,
-                        opacity: 0.9,
-                        age: 0
-                    });
-                }
-                return particles;
-            }
-            
-            // Draw star function
-            function drawStar(cx, cy, size, opacity = 1, isGlowing = true) {
-                const points = 5;
-                const outerRadius = size;
-                const innerRadius = size * 0.4;
-                let rot = Math.PI / 2 * 3;
-                const step = Math.PI / points;
-                
-                ctx.beginPath();
-                
-                for (let i = 0; i < points; i++) {
-                    // Outer point
-                    const x1 = cx + Math.cos(rot) * outerRadius;
-                    const y1 = cy + Math.sin(rot) * outerRadius;
-                    
-                    if (i === 0) {
-                        ctx.moveTo(x1, y1);
-                    } else {
-                        ctx.lineTo(x1, y1);
-                    }
-                    
-                    rot += step;
-                    
-                    // Inner point
-                    const x2 = cx + Math.cos(rot) * innerRadius;
-                    const y2 = cy + Math.sin(rot) * innerRadius;
-                    ctx.lineTo(x2, y2);
-                    
-                    rot += step;
-                }
-                
-                ctx.closePath();
-                
-                // Fill with gradient
-                const gradient = ctx.createRadialGradient(cx - size*0.3, cy - size*0.3, 0, cx, cy, size);
-                gradient.addColorStop(0, `rgba(255, 255, 200, ${opacity})`);
-                gradient.addColorStop(0.5, `rgba(255, 215, 0, ${opacity})`);
-                gradient.addColorStop(1, `rgba(255, 140, 0, ${opacity})`);
-                
-                ctx.fillStyle = gradient;
-                ctx.fill();
-                
-                // Add glow if needed
-                if (isGlowing) {
-                    ctx.shadowColor = 'rgba(255, 215, 0, 0.8)';
-                    ctx.shadowBlur = 20;
-                    ctx.fill();
-                    ctx.shadowBlur = 0;
-                }
+            // Initialize rays
+            for (let i = 0; i < numRays; i++) {
+                const angle = (i / numRays) * Math.PI * 2;
+                rays.push({
+                    angle: angle,
+                    length: 0,
+                    speed: 0.5 + Math.random() * 0.5,
+                    opacity: 0
+                });
             }
             
             // Animation loop
-            function animate(currentTime) {
-                if (!startTime) {
-                    startTime = currentTime;
-                    requestAnimationFrame(animate);
-                    return;
-                }
-                
-                const elapsed = currentTime - startTime;
-                
+            function animate() {
                 // Clear canvas
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
-                if (animationPhase === 'approaching') {
-                    // Calculate star position (approach from corner to center)
-                    const progress = Math.min(elapsed / approachDuration, 1);
+                // Update based on phase
+                if (phase === 'rising') {
+                    // Sun rises from bottom
+                    sunY -= 2;
+                    opacity = Math.min(1, (canvas.height + 100 - sunY) / 300);
                     
-                    // Easing for smooth approach
-                    const easeProgress = 1 - Math.pow(1 - progress, 3);
-                    
-                    const currentX = startCorner.x + (centerX - startCorner.x) * easeProgress;
-                    const currentY = startCorner.y + (centerY - startCorner.y) * easeProgress;
-                    
-                    // Calculate star size (grows as it approaches)
-                    const starSize = 20 + (80 * easeProgress);
-                    
-                    // Draw trail
-                    particles.push({
-                        x: currentX,
-                        y: currentY,
-                        size: starSize * 0.6,
-                        opacity: 0.7,
-                        age: 0
+                    // Update ray lengths and opacity
+                    rays.forEach(ray => {
+                        ray.length = Math.min(200, (canvas.height - sunY) / 2);
+                        ray.opacity = opacity * 0.7;
                     });
                     
-                    // Update and draw particles
-                    for (let i = particles.length - 1; i >= 0; i--) {
-                        const p = particles[i];
-                        p.age += 1;
-                        p.opacity *= 0.98;
-                        p.size *= 0.99;
-                        
-                        if (p.opacity < 0.01 || p.age > 100) {
-                            particles.splice(i, 1);
-                            continue;
-                        }
-                        
-                        ctx.globalAlpha = p.opacity;
-                        drawStar(p.x, p.y, p.size, p.opacity, false);
+                    // Check if sun reached position
+                    if (sunY <= canvas.height * 0.3) {
+                        phase = 'shining';
                     }
+                } else {
+                    // Sun is shining - gentle pulsing
+                    const pulse = 1 + Math.sin(Date.now() * 0.003) * 0.1;
                     
-                    // Draw main star
-                    ctx.globalAlpha = 1;
-                    drawStar(currentX, currentY, starSize, 1, true);
+                    rays.forEach(ray => {
+                        ray.length = 200 + Math.sin(Date.now() * ray.speed) * 30;
+                        ray.opacity = 0.7 + Math.sin(Date.now() * 0.002 + ray.angle) * 0.2;
+                    });
+                }
+                
+                // Draw sun glow (large radial gradient)
+                const gradient = ctx.createRadialGradient(
+                    canvas.width / 2, sunY, 0,
+                    canvas.width / 2, sunY, sunRadius * 2
+                );
+                gradient.addColorStop(0, `rgba(253, 184, 19, ${opacity})`);
+                gradient.addColorStop(0.4, `rgba(253, 184, 19, ${opacity * 0.6})`);
+                gradient.addColorStop(0.7, `rgba(253, 184, 19, ${opacity * 0.3})`);
+                gradient.addColorStop(1, 'rgba(253, 184, 19, 0)');
+                
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw sun rays
+                ctx.save();
+                ctx.translate(canvas.width / 2, sunY);
+                
+                rays.forEach(ray => {
+                    const x1 = Math.cos(ray.angle) * sunRadius;
+                    const y1 = Math.sin(ray.angle) * sunRadius;
+                    const x2 = Math.cos(ray.angle) * (sunRadius + ray.length);
+                    const y2 = Math.sin(ray.angle) * (sunRadius + ray.length);
                     
-                    // Check for impact
-                    if (progress >= 1) {
-                        animationPhase = 'impact';
-                        impactTime = currentTime;
-                        
-                        // Create explosion particles
-                        particles = createExplosionParticles();
-                    }
-                    
-                    requestAnimationFrame(animate);
-                    
-                } else if (animationPhase === 'impact') {
-                    const impactElapsed = currentTime - impactTime;
-                    const impactProgress = Math.min(impactElapsed / impactDuration, 1);
-                    
-                    // Draw explosion/shockwave
-                    const shockwaveSize = 100 + (200 * impactProgress);
                     ctx.beginPath();
-                    ctx.arc(centerX, centerY, shockwaveSize, 0, Math.PI * 2);
-                    ctx.strokeStyle = `rgba(255, 215, 0, ${1 - impactProgress})`;
-                    ctx.lineWidth = 5;
+                    ctx.moveTo(x1, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.strokeStyle = `rgba(255, 215, 0, ${ray.opacity})`;
+                    ctx.lineWidth = 3 + ray.length * 0.05;
                     ctx.stroke();
                     
-                    // Draw expanding glow
-                    const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, shockwaveSize * 1.5);
-                    gradient.addColorStop(0, `rgba(255, 255, 200, ${0.5 * (1 - impactProgress)})`);
-                    gradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
-                    ctx.fillStyle = gradient;
-                    ctx.globalCompositeOperation = 'lighter';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.globalCompositeOperation = 'source-over';
-                    
-                    // Draw explosion particles
-                    for (let i = particles.length - 1; i >= 0; i--) {
-                        const p = particles[i];
-                        p.age += 1;
-                        p.x += p.vx;
-                        p.y += p.vy;
-                        p.vx *= 0.98;
-                        p.vy *= 0.98;
-                        p.opacity *= 0.97;
-                        p.size *= 0.98;
-                        
-                        if (p.opacity < 0.01 || p.age > 100) {
-                            particles.splice(i, 1);
-                            continue;
+                    // Add glow to rays
+                    ctx.shadowColor = '#FDB813';
+                    ctx.shadowBlur = 20;
+                    ctx.stroke();
+                    ctx.shadowBlur = 0;
+                });
+                
+                ctx.restore();
+                
+                // Draw sun core
+                ctx.beginPath();
+                ctx.arc(canvas.width / 2, sunY, sunRadius, 0, Math.PI * 2);
+                
+                // Sun gradient
+                const sunGradient = ctx.createRadialGradient(
+                    canvas.width / 2 - 30, sunY - 30, 0,
+                    canvas.width / 2, sunY, sunRadius
+                );
+                sunGradient.addColorStop(0, '#FFF5B0');
+                sunGradient.addColorStop(0.5, '#FDB813');
+                sunGradient.addColorStop(1, '#FF8C00');
+                
+                ctx.fillStyle = sunGradient;
+                ctx.shadowColor = '#FDB813';
+                ctx.shadowBlur = 40;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                
+                // Draw highlight on sun
+                ctx.beginPath();
+                ctx.arc(canvas.width / 2 - 20, sunY - 20, 30, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.fill();
+                
+                // Remove splash screen after animation completes
+                if (phase === 'shining' && sunY <= -sunRadius) {
+                    setTimeout(() => {
+                        splashScreen.style.display = 'none';
+                        // Trigger counter animations
+                        if (impactSection) {
+                            animateCounter();
                         }
-                        
-                        ctx.globalAlpha = p.opacity;
-                        drawStar(p.x, p.y, p.size, p.opacity, false);
-                    }
-                    
-                    // Draw impact star
-                    drawStar(centerX, centerY, 100 * (1 - impactProgress * 0.5), 1 - impactProgress * 0.3, true);
-                    
-                    // After impact, reveal logo
-                    if (impactProgress >= 1) {
-                        animationPhase = 'logoReveal';
-                        logoRevealTime = currentTime;
-                        
-                        // Clear particles
-                        particles = [];
-                        
-                        // Fade in the logo
-                        splashContent.style.opacity = '1';
-                        splashContent.style.transition = 'opacity 1s ease-in-out';
-                    }
-                    
-                    requestAnimationFrame(animate);
-                    
-                } else if (animationPhase === 'logoReveal') {
-                    const revealElapsed = currentTime - logoRevealTime;
-                    const revealProgress = Math.min(revealElapsed / logoRevealDuration, 1);
-                    
-                    // Draw sparkles around logo
-                    if (revealProgress < 1) {
-                        for (let i = 0; i < 10; i++) {
-                            const angle = (i / 10) * Math.PI * 2 + (revealProgress * 0.1);
-                            const distance = 150 + Math.sin(revealProgress * 10) * 20;
-                            const x = centerX + Math.cos(angle) * distance * (1 - revealProgress);
-                            const y = centerY + Math.sin(angle) * distance * (1 - revealProgress);
-                            const size = 10 * (1 - revealProgress);
-                            const opacity = 0.5 * (1 - revealProgress);
-                            
-                            ctx.globalAlpha = opacity;
-                            drawStar(x, y, size, opacity, false);
-                        }
-                    }
-                    
-                    // Finish animation
-                    if (revealProgress >= 1) {
-                        setTimeout(() => {
-                            splashScreen.style.display = 'none';
-                            // Trigger counter animations
-                            if (impactSection) {
-                                animateCounter();
-                            }
-                        }, 500);
-                        return;
-                    }
-                    
-                    requestAnimationFrame(animate);
+                    }, 1000);
+                    return;
                 }
+                
+                requestAnimationFrame(animate);
             }
             
-            // Start animation immediately
-            requestAnimationFrame(animate);
+            // Start animation
+            animate();
             
-            // Fallback - ensure splash screen disappears even if animation fails
+            // Remove splash screen after timeout (fallback)
             setTimeout(() => {
                 if (splashScreen.style.display !== 'none') {
                     splashScreen.style.display = 'none';
-                    splashContent.style.opacity = '1';
                 }
-            }, 6000);
+            }, 5000);
         });
 
         // Focus management for accessibility
