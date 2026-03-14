@@ -335,9 +335,9 @@
             padding: 5px;
         }
 
-        /* Hero Section */
+        /* Hero Section - UPDATED for better text visibility */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/ban img.png');
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('images/ban img.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -359,14 +359,23 @@
             font-size: 3.5rem;
             color: var(--white);
             margin-bottom: 1.5rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 800;
         }
 
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2.5rem;
-            opacity: 0.95;
+            color: #ffffff;
             line-height: 1.8;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .hero-btns {
@@ -374,6 +383,25 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Ensure buttons stand out */
+        .hero-btns .btn {
+            font-weight: 700;
+            border: 2px solid transparent;
+        }
+
+        .hero-btns .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .hero-btns .btn-secondary:hover {
+            background: var(--white);
+            color: var(--dark-green);
+            border-color: var(--white);
         }
 
         /* About Section */
@@ -969,6 +997,7 @@
 
             .hero p {
                 font-size: 1.1rem;
+                padding: 12px 20px;
             }
 
             .hero-btns {
@@ -1041,6 +1070,7 @@
 
             .hero p {
                 font-size: 1rem;
+                padding: 10px 15px;
             }
 
             .stat-box {
@@ -1164,7 +1194,7 @@
         </div>
     </header>
 
-    <!-- Home Page -->
+    <!-- Home Page - Hero Section with improved visibility -->
     <section class="hero">
         <div class="container hero-content">
             <h1>Empowering Africa Through Skills and Enterprise</h1>
@@ -1937,4 +1967,5 @@
         });
     </script>
 </body>
+
 </html>
