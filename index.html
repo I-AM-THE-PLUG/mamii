@@ -170,10 +170,6 @@
             padding: 0 20px;
         }
 
-        .loading-text.hide {
-            opacity: 0;
-        }
-
         @keyframes pulseText {
             0%, 100% { 
                 opacity: 0.7;
@@ -425,6 +421,21 @@
             color: var(--primary-green);
         }
 
+        nav ul li a.active {
+            color: var(--primary-green);
+        }
+
+        nav ul li a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-green);
+            border-radius: 2px;
+        }
+
         .mobile-menu-btn {
             display: block;
             font-size: 1.5rem;
@@ -515,7 +526,7 @@
             }
         }
 
-        /* Urgent Banner - FIXED FOR MOBILE */
+        /* Urgent Banner */
         .urgent-banner {
             background: linear-gradient(135deg, #D2691E, #B85C0E);
             color: white;
@@ -563,12 +574,10 @@
             border-radius: 30px;
             font-size: clamp(0.7rem, 3vw, 0.85rem);
             font-weight: normal;
-            white-space: nowrap;
         }
 
         @media (max-width: 480px) {
             .progress-badge {
-                white-space: normal;
                 font-size: 0.7rem;
             }
         }
@@ -693,7 +702,7 @@
             }
         }
 
-        /* Maternity Project Section - FIXED FOR MOBILE */
+        /* Maternity Project Section */
         #maternity-project {
             background: linear-gradient(135deg, #FFF5EB 0%, #FFE8D9 100%);
             border-top: 5px solid var(--terracotta);
@@ -1068,11 +1077,11 @@
             </button>
             <nav id="mainNav" aria-label="Main navigation">
                 <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Programs</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -1085,7 +1094,7 @@
             <p>We equip individuals and communities across Africa with practical skills, entrepreneurial support, and resources to build sustainable livelihoods and drive inclusive economic growth.</p>
             <div class="hero-btns">
                 <a href="#maternity-project" class="btn">❤️ Support Maternity Project</a>
-                <a href="#" class="btn btn-secondary">Our Programs</a>
+                <a href="programs.html" class="btn btn-secondary">Our Programs</a>
             </div>
         </div>
     </section>
@@ -1108,7 +1117,7 @@
                             <p>A prosperous Africa where individuals and communities thrive through skills, entrepreneurship, and empowerment.</p>
                         </div>
                     </div>
-                    <a href="#" class="btn" style="margin-top: 30px;">Learn More About Us</a>
+                    <a href="about.html" class="btn" style="margin-top: 30px;">Learn More About Us</a>
                 </div>
                 <div class="about-img">
                     <img src="images/ban img.png" alt="EAN team working with community" loading="lazy">
@@ -1117,7 +1126,7 @@
         </div>
     </section>
     
-    <!-- Maternity Project Section - FIXED FOR MOBILE -->
+    <!-- Maternity Project Section -->
     <section class="section" id="maternity-project">
         <div class="container">
             <div class="section-header">
@@ -1200,7 +1209,7 @@
                     <div class="program-content">
                         <h3>Skills for Growth</h3>
                         <ul style="padding-left: 20px;"><li>Vocational training (tailoring, carpentry, electrical work etc)</li><li>Digital skills training (coding, graphic design etc)</li><li>Entrepreneurial skills development</li><li>Business planning and financial management</li></ul>
-                        <a href="#" class="btn">Learn More</a>
+                        <a href="programs.html" class="btn">Learn More</a>
                     </div>
                 </div>
                 <div class="program-card">
@@ -1208,7 +1217,7 @@
                     <div class="program-content">
                         <h3>Entrepreneur Support</h3>
                         <ul style="padding-left: 20px;"><li>Business incubation for startups</li><li>Access to finance and micro-loans</li><li>Market linkages and networking</li><li>Mentorship from experienced professionals</li></ul>
-                        <a href="#" class="btn">Learn More</a>
+                        <a href="programs.html" class="btn">Learn More</a>
                     </div>
                 </div>
                 <div class="program-card">
@@ -1216,7 +1225,7 @@
                     <div class="program-content">
                         <h3>Community Upliftment</h3>
                         <ul style="padding-left: 20px;"><li>Support for vulnerable groups</li><li>Women and youth empowerment</li><li>Health and education initiatives</li><li>Water access projects (boreholes)</li></ul>
-                        <a href="#" class="btn">Learn More</a>
+                        <a href="programs.html" class="btn">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -1242,8 +1251,8 @@
             <div class="section-header"><h2>Get Involved</h2><p>Join our movement to create lasting impact.</p></div>
             <div class="involve-options">
                 <div class="involve-card"><div class="involve-icon"><i class="fas fa-hand-holding-heart"></i></div><h3>Donate to Maternity Project</h3><p>Support the construction of Maternity Block with Operating Theatre.</p><a href="#maternity-project" class="btn btn-whatsapp" style="background:#25D366;">Donate via WhatsApp</a></div>
-                <div class="involve-card"><div class="involve-icon"><i class="fas fa-handshake"></i></div><h3>Partner With Us</h3><p>Corporations, foundations, and institutions can partner with us.</p><a href="#" class="btn">Become a Partner</a></div>
-                <div class="involve-card"><div class="involve-icon"><i class="fas fa-users"></i></div><h3>Volunteer</h3><p>Share your skills and expertise as a mentor or trainer.</p><a href="#" class="btn">Volunteer Today</a></div>
+                <div class="involve-card"><div class="involve-icon"><i class="fas fa-handshake"></i></div><h3>Partner With Us</h3><p>Corporations, foundations, and institutions can partner with us.</p><a href="contact.html?subject=Partnership" class="btn">Become a Partner</a></div>
+                <div class="involve-card"><div class="involve-icon"><i class="fas fa-users"></i></div><h3>Volunteer</h3><p>Share your skills and expertise as a mentor or trainer.</p><a href="contact.html?subject=Volunteer" class="btn">Volunteer Today</a></div>
             </div>
         </div>
     </section>
@@ -1268,7 +1277,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col"><div class="logo" style="margin-bottom:20px; justify-content: flex-start;"><img src="images/logo.jpeg" class="logo-img" style="height:50px"><div class="logo-text"><h1 style="color:white; font-size:1.3rem;">EAN</h1><div class="tagline" style="color:var(--accent-yellow)">Empower Africa Network</div></div></div><p>Driving sustainable livelihoods across Africa through skills development and entrepreneurship.</p><div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;"><a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%;"><i class="fab fa-facebook-f"></i></a><a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%;"><i class="fab fa-twitter"></i></a><a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%;"><i class="fab fa-instagram"></i></a></div></div>
-                <div class="footer-col"><h3>Quick Links</h3><ul style="list-style: none; padding-left: 0;"><li style="margin-bottom: 10px;"><a href="#">Home</a></li><li style="margin-bottom: 10px;"><a href="#maternity-project">Maternity Project</a></li><li style="margin-bottom: 10px;"><a href="#">About Us</a></li><li style="margin-bottom: 10px;"><a href="#">Our Programs</a></li></ul></div>
+                <div class="footer-col"><h3>Quick Links</h3><ul style="list-style: none; padding-left: 0;"><li style="margin-bottom: 10px;"><a href="index.html">Home</a></li><li style="margin-bottom: 10px;"><a href="#maternity-project">Maternity Project</a></li><li style="margin-bottom: 10px;"><a href="about.html">About Us</a></li><li style="margin-bottom: 10px;"><a href="programs.html">Our Programs</a></li></ul></div>
                 <div class="footer-col"><h3>Newsletter</h3><p>Subscribe for updates</p><div class="newsletter-form" style="display: flex; flex-direction: column; gap: 10px;"><input type="email" placeholder="Your email" style="padding: 12px; border-radius: 8px; border: none;"><button type="button" class="btn" onclick="alert('Thank you for subscribing!')">Subscribe</button></div></div>
             </div>
             <div class="copyright"><p>&copy; 2025 Empower Africa Network. All rights reserved.</p></div>
@@ -1291,6 +1300,17 @@
                 });
             });
         }
+
+        // Set active link based on current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            const linkPage = link.getAttribute('href');
+            if (linkPage === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
 
         // Animated Counter
         const animateCounter = () => {
